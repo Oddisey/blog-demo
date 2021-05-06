@@ -47,8 +47,20 @@
             "polyfills": "apps/blog/src/polyfills.ts",
             "tsConfig": "apps/blog/tsconfig.app.json",
             "aot": true,
-            "assets": ["apps/blog/src/favicon.ico", "apps/blog/src/assets"],
-            "styles": ["apps/blog/src/styles.scss"],
+            "assets": [
+              "apps/blog/src/favicon.ico",
+              "apps/blog/src/assets"
+            ],
+            "styles": [
+              "apps/blog/src/styles.scss",
+              "apps/blog/src/assets/scss/_variables.scss",
+              "node_modules/font-awesome/scss/font-awesome.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "apps/blog/src/assets/scss"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -109,7 +121,9 @@
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/blog"],
+          "outputs": [
+            "coverage/apps/blog"
+          ],
           "options": {
             "jestConfig": "apps/blog/jest.config.js",
             "passWithNoTests": true
@@ -138,7 +152,9 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/blog-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/blog-e2e/**/*.{js,ts}"
+            ]
           }
         }
       }
